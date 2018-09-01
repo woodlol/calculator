@@ -1,7 +1,7 @@
 class Calculator {
-    static REMOVE () {return 'C'};
+    static REMOVE ()    {return 'C' };
     static CLEAR_ALL () {return 'CE'};
-    static RESULT () {return '='};
+    static RESULT ()    {return '=' };
 
     constructor (container) {
         this.$container = $(container);
@@ -10,11 +10,10 @@ class Calculator {
 
         this.string = '';
 
-        this.$btns
-            .on('click', (ev) => {
+        this.$btns.on('click', (ev) => {
             this.initTextInput();
-        this.getResult(ev.currentTarget);
-    });
+            this.getResult(ev.currentTarget);
+        });
     }
 
     getResult(btn)
@@ -43,5 +42,76 @@ class Calculator {
     initTextInput()
     {
         this.string = this.$input.val();
+    }
+
+    static getTable()
+    {
+        return `
+        <table class="table">
+					<tr>
+						<td colspan="3">
+							<label>
+								<input type="text" class="form-control">
+							</label>
+						</td>
+						<td>
+							<button class="btn btn-primary">/</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button class="btn btn-primary">7</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">8</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">9</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">*</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button class="btn btn-primary">4</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">5</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">6</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">-</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button class="btn btn-primary">1</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">2</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">3</button>
+						</td>
+						<td>
+							<button class="btn btn-primary">+</button>
+						</td>
+					</tr>
+					<tr>
+						<td><button class="btn btn-danger">CE</button></td>
+						<td>
+							<button class="btn btn-primary">0</button>
+						</td>
+						<td>
+							<button class="btn btn-warning" id="c">C</button></td>
+						<td>
+							<button class="btn btn-primary" id="result">=</button>
+						</td>
+					</tr>
+				</table>
+        `;
     }
 }
