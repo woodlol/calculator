@@ -12,9 +12,9 @@ class Calculator {
 
         this.$btns
             .on('click', (ev) => {
-                this.initTextInput();
-                this.getResult(ev.currentTarget);
-            });
+            this.initTextInput();
+        this.getResult(ev.currentTarget);
+    });
     }
 
     getResult(btn)
@@ -45,5 +45,3 @@ class Calculator {
         this.string = this.$input.val();
     }
 }
-
-$(document).ready(() => new Calculator('.container'));
