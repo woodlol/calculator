@@ -1,7 +1,7 @@
 class Calculator {
-    static REMOVE ()    {return 'C' };
-    static CLEAR_ALL () {return 'CE'};
-    static RESULT ()    {return '=' };
+    static REMOVE = 'C';
+    static CLEAR_ALL = 'CE';
+    static RESULT = '=';
 
     constructor (container) {
         this.$container = $(container);
@@ -20,13 +20,13 @@ class Calculator {
     {
         const symbol = $(btn).html();
         switch (symbol) {
-            case Calculator.REMOVE():
+            case Calculator.REMOVE:
                 this.string = this.string.slice(0, this.string.length - 1);
                 break;
-            case Calculator.CLEAR_ALL():
+            case Calculator.CLEAR_ALL:
                 this.string = '';
                 break;
-            case Calculator.RESULT():
+            case Calculator.RESULT:
                 try {
                     return alert(eval(this.$input.val()));
                 } catch (ex) {
